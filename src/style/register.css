@@ -1,0 +1,29 @@
+.register-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+.register-form {
+  width: 300px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(8, 180, 223);
+  height: auto;
+}
+.MuiTextField-root {
+  background: white;
+}
+.status-text {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.green-error {
+  color: green;
+}
+.red-error {
+  color: red;
+}

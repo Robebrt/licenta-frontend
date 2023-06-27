@@ -1,0 +1,55 @@
+.user-data {
+  background-color: rgb(19, 111, 134);
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.avatar-profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.user-name {
+  font-size: 30px;
+  font-weight: 500;
+}
+.user-profile-box {
+  display: flex;
+}
+.user-movies-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-card {
+  display: inline-block;
+  max-width: 230px;
+  max-height: 465px;
+  vertical-align: top;
+}
+.movie-details {
+  height: 250px;
+  text-wrap: balance;
+}
+.movie-card__title{
+  text-wrap: balance;
+}
+.movie-card:hover {
+  width: 210px;
+  padding: 10px;
+  height: 437px;
+}
+.movie-card-button {
+  height: 60px;
+}
+.scrollable-div {
+  width: 80vw;
+  overflow: auto hidden;
+  white-space: nowrap;
+  padding: 8px;
+  margin: auto;
+}
+.user-data > *{
+  margin-bottom: 10px;
+}

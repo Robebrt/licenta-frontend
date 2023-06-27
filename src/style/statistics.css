@@ -1,0 +1,19 @@
+.stats {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
+}
+.stats > div {
+  margin-right: 15px;
+}
+
+.align-text {
+  text-align: center;
+}
+/* .pie{
+    width: 500px;
+    height: 500px;
+} */
