@@ -95,18 +95,19 @@ function WatchingStatistics(props) {
         const allSeries = [...fullWatchedSeries, ...watchingSeries];
         for (let i = 0; i < allSeries.length; i++) {
             const series = allSeries[i];
-            for (const episodeId of series.episoade) {
-                const response = await axios.get(`http://localhost:3000/api/episoade/${episodeId}`);
-                if (response.data) {
-                    const episodeDuration = parseInt(response.data.Durata.split(" ")[0]);
-                    if (!isNaN(episodeDuration)) {
-                        totalMinutesSeries += episodeDuration;
+            if (series.episoade) {
+                for (const episodeId of series.episoade) {
+                    const response = await axios.get(`http://localhost:3000/api/episoade/${episodeId}`);
+                    if (response.data) {
+                        const episodeDuration = parseInt(response.data.Durata.split(" ")[0]);
+                        if (!isNaN(episodeDuration)) {
+                            totalMinutesSeries += episodeDuration;
+                        }
                     }
                 }
+                const progress = ((i + 1) / allSeries.length) * 100;
+                setProgress(progress);
             }
-
-            const progress = ((i + 1) / allSeries.length) * 100;
-            setProgress(progress);
         }
 
         setTotalMinutesSeries(totalMinutesSeries);
@@ -119,7 +120,9 @@ function WatchingStatistics(props) {
         let episodesCount = 0;
         const allSeries = [...fullWatchedSeries, ...watchingSeries];
         for (const series of allSeries) {
-            episodesCount += series.episoade.length;
+            if (series.episoade) {
+                episodesCount += series.episoade.length;
+            }
         }
 
         setTotalEpisodes(episodesCount);
@@ -150,7 +153,7 @@ function WatchingStatistics(props) {
         <>
             {
                 isLoading ? (
-                    <div style={{ display: "flex", alignItems: "center", justifyContent:"center", width:"100%" }} >
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }} >
                         <h1>Se încarcă...</h1>
                         <CircularProgress variant="determinate" value={progress} />
                     </div >
@@ -206,7 +209,7 @@ function WatchingStatistics(props) {
                             </div>
                         </div>
                     )}
-                    </>
+        </>
     );
 };
 const mapStateToProps = (state) => {
